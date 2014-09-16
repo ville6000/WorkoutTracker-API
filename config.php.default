@@ -1,0 +1,13 @@
+<?php
+
+ORM::configure('mysql:host=localhost;dbname=my_database');
+ORM::configure('username', 'username');
+ORM::configure('password', 'password');
+
+ORM::configure('return_result_sets', true);
+ORM::configure('logging', true);
+
+ORM::configure('id_column_overrides', array(
+    'countries' => 'code',
+    'cities' => 'ID',
+));
