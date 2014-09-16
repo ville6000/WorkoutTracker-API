@@ -3,7 +3,7 @@
 require 'vendor/autoload.php';
 require 'config.php';
 
-$app = new \Slim\Slim(array('debug' => true));
+$app = new \Slim\Slim($slimSettings);
 $app->contentType('application/json');
 
 /**
