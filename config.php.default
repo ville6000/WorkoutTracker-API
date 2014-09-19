@@ -13,3 +13,10 @@ ORM::configure('password', 'password');
 
 ORM::configure('return_result_sets', true);
 ORM::configure('logging', true);
+
+/**
+ * Id column overrides
+ */
+ORM::configure('id_column_overrides', array(
+    'exercise' => 'exercise_id',
+));
