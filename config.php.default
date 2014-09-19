@@ -18,5 +18,6 @@ ORM::configure('logging', true);
  * Id column overrides
  */
 ORM::configure('id_column_overrides', array(
-    'exercise' => 'exercise_id',
+    'exercises' => 'exercise_id',
+    'programs' => 'program_id',
 ));
