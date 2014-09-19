@@ -2,5 +2,8 @@ WorkoutTracker-API
 ==================
 
 ## Routes
-### /exercises
-Returns all exercises
+### Exercises
+- GET /exercises
+- POST /exercises
+- PUT /exercises/1
+- DELETE /exercises/1
