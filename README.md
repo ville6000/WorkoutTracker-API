@@ -5,5 +5,12 @@ WorkoutTracker-API
 ### Exercises
 - GET /exercises
 - POST /exercises
-- PUT /exercises/1
-- DELETE /exercises/1
+- PUT /exercises/:id
+- DELETE /exercises/:id
+
+### Programs
+- GET /programs
+- GET /programs/:id
+- POST /programs
+- PUT /programs/:id
+- DELETE /programs/:id
