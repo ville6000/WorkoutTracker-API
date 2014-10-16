@@ -17,9 +17,12 @@ $app->get('/exercises', function() use ($app) {
  * POST request for exercises
  */
 $app->post('/exercises', function() use ($app) {
+    $requestBody = $app->request()->getBody();
+    $requestParams = json_decode($requestBody);
+
     $exercise = ORM::forTable('exercises')->create();
-    $exercise->name = $app->request->post('name');
-    $exercise->description = $app->request->post('description');
+    $exercise->name = $requestParams->name;
+    $exercise->description = $requestParams->description;
 
     return $exercise->save();
 });
