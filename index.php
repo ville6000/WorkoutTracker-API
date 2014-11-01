@@ -35,11 +35,19 @@ $app->post('/exercises', function() use ($app) {
  * PUT request for exercises
  */
 $app->put('/exercises/:id', function($id) use ($app) {
-    $exercise = ORM::forTable('exercises')->findOne($id);
-    $exercise->name = $app->request->put('name');
-    $exercise->description = $app->request->put('description');
+    $requestBody = $app->request()->getBody();
+    $requestParams = json_decode($requestBody);
 
-    return $exercise->save();
+    $exercise = ORM::forTable('exercises')->findOne($id);
+    $exercise->name = $requestParams->name;
+    $exercise->description = $requestParams->description;
+
+    $exercise->save();
+
+    echo json_encode([
+        "name" => $requestParams->name,
+        "description" => $requestParams->description
+    ]);
 });
 
 /**
