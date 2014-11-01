@@ -24,7 +24,11 @@ $app->post('/exercises', function() use ($app) {
     $exercise->name = $requestParams->name;
     $exercise->description = $requestParams->description;
 
-    return $exercise->save();
+    $exercise->save();
+
+    echo json_encode([
+        "exercise_id" => $exercise->id()
+    ]);
 });
 
 /**
