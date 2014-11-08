@@ -15,15 +15,20 @@ $app->post('/exercises', function() use ($app) {
 	$requestBody = $app->request()->getBody();
 	$requestParams = json_decode($requestBody);
 
-	$exercise = ORM::forTable('exercises')->create();
-	$exercise->name = $requestParams->name;
-	$exercise->description = $requestParams->description;
+	$uniqueCheck = ORM::forTable('exercises')->where('name', $requestParams->name)->findOne();
+    $isUniqueName = empty($uniqueCheck);
 
-	$exercise->save();
+    if ($isUniqueName) {
+        $exercise = ORM::forTable('exercises')->create();
+        $exercise->name = $requestParams->name;
+        $exercise->description = $requestParams->description;
 
-	echo json_encode([
-		"exercise_id" => $exercise->id()
-	]);
+        $exercise->save();
+
+        echo json_encode([
+            "exercise_id" => $exercise->id()
+        ]);
+    }
 });
 
 /**
@@ -33,16 +38,21 @@ $app->put('/exercises/:id', function($id) use ($app) {
 	$requestBody = $app->request()->getBody();
 	$requestParams = json_decode($requestBody);
 
-	$exercise = ORM::forTable('exercises')->findOne($id);
-	$exercise->name = $requestParams->name;
-	$exercise->description = $requestParams->description;
+    $uniqueCheck = ORM::forTable('exercises')->where('name', $requestParams->name)->findOne();
+    $isUniqueName = empty($uniqueCheck);
 
-	$exercise->save();
+    if ($isUniqueName) {
+        $exercise = ORM::forTable( 'exercises' )->findOne( $id );
+        $exercise->name = $requestParams->name;
+        $exercise->description = $requestParams->description;
 
-	echo json_encode([
-		"name" => $requestParams->name,
-		"description" => $requestParams->description
-	]);
+        $exercise->save();
+
+        echo json_encode( [
+            "name" => $requestParams->name,
+            "description" => $requestParams->description
+        ] );
+    }
 });
 
 /**
