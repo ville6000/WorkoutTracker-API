@@ -22,4 +22,5 @@ ORM::configure('driver_options', array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAME
 ORM::configure('id_column_overrides', array(
     'exercises' => 'exercise_id',
     'programs' => 'program_id',
+    'program_exercises' => 'program_exercise_id'
 ));
