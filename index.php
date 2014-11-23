@@ -8,5 +8,6 @@ $app->contentType('application/json');
 require 'routes/exercises.php';
 require 'routes/programs.php';
 require 'routes/programsexercises.php';
+require 'routes/workouts.php';
 
 $app->run();
