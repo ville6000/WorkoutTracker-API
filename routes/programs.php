@@ -21,12 +21,19 @@ $app->get('/programs/:id', function($id) use ($app) {
  * POST request for programs
  */
 $app->post('/programs', function() use ($app) {
-	$program = ORM::forTable('programs')->create();
-	// TODO: replace with real user id
-	$program->user_id = 0;
-	$program->name = $app->request->post('name');
+    $requestBody = $app->request()->getBody();
+    $requestParams = json_decode($requestBody);
 
-	return $program->save();
+    $program = ORM::forTable('programs')->create();
+    // TODO: replace with real user id
+    $program->user_id = 0;
+    $program->name = $requestParams->name;
+
+    $program->save();
+
+    echo json_encode([
+        "program_id" => $program->id()
+    ]);
 });
 
 /**
