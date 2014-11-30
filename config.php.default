@@ -23,5 +23,6 @@ ORM::configure('id_column_overrides', array(
     'exercises' => 'exercise_id',
     'programs' => 'program_id',
     'program_exercises' => 'program_exercise_id',
-    'workout' => 'workout_id'
+    'workout' => 'workout_id',
+    'workout_exercise' => 'workout_exercise_id'
 ));

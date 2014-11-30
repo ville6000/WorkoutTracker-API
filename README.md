@@ -18,7 +18,7 @@ WorkoutTracker-API
 ### Program exercises
 - GET program/:id/exercises
 - POST program/:id/exercises
-- PUT program/:id/exercises/:program_exercise_idww
+- PUT program/:id/exercises/:program_exercise_id
 - DELETE program/:id/exercises/:program_exercise_id
 
 ### Workouts
@@ -28,3 +28,9 @@ WorkoutTracker-API
 - PUT /workouts/:workout_id
 - DELETE /workouts/:workout_id
 - GET /workouts/program/:program_id
+
+### Workout Exercises
+- GET /workout/:workout_id/exercises
+- POST /workouts/:workout_id/exercises
+- PUT /workouts/:workout_id/exercises/:workout_exercise_id
+- DELETE /workouts/:workout_id/exercises/:workout_exercise_id
