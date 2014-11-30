@@ -26,7 +26,7 @@ $app->post('/programs/:id/exercises', function ($programId) use ($app) {
     $programExercise->save();
 
     echo json_encode([
-        "program_exercise_id" => $programExercise->program_exercise_id
+        "program_exercise_id" => $programExercise->id()
     ]);
 });
 
