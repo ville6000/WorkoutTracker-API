@@ -77,6 +77,10 @@ $app->put('/workouts/:workout_id', function($workoutId) use ($app) {
 
     if (!$workout->save()) {
         $app->response()->setStatus(500);
+    } else {
+        echo json_encode( [
+            "workout_id" => $workoutId,
+        ] );
     }
 });
 
