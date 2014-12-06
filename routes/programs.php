@@ -41,8 +41,11 @@ $app->post('/programs', function() use ($app) {
  * TODO Access control
  */
 $app->put('/programs/:id', function($id) use ($app) {
+    $requestBody = $app->request()->getBody();
+    $requestParams = json_decode($requestBody);
+
 	$program = ORM::forTable('programs')->findOne($id);
-	$program->name = $app->request->put('name');
+	$program->name = $requestParams->name;
 
 	return $program->save();
 });
