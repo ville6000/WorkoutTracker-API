@@ -9,6 +9,14 @@ $app->get('/exercises', function() use ($app) {
 });
 
 /**
+ * GET request for single exercise
+ */
+$app->get('/exercises/:id', function($id) use ($app) {
+    $exercise = ORM::forTable('exercises')->findOne($id);
+    $app->response->body(json_encode($exercise->asArray()));
+});
+
+/**
  * POST request for exercises
  */
 $app->post('/exercises', function() use ($app) {
@@ -39,7 +47,7 @@ $app->put('/exercises/:id', function($id) use ($app) {
 	$requestParams = json_decode($requestBody);
 
     $uniqueCheck = ORM::forTable('exercises')->where('name', $requestParams->name)->findOne();
-    $isUniqueName = empty($uniqueCheck);
+    $isUniqueName = empty($uniqueCheck) || $uniqueCheck['exercise_id'] == $id;
 
     if ($isUniqueName) {
         $exercise = ORM::forTable( 'exercises' )->findOne( $id );
