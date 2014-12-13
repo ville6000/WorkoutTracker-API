@@ -34,3 +34,10 @@ WorkoutTracker-API
 - POST /workouts/:workout_id/exercises
 - PUT /workouts/:workout_id/exercises/:workout_exercise_id
 - DELETE /workouts/:workout_id/exercises/:workout_exercise_id
+
+### Workout Exercise Sets
+- GET /workout/:workout_id/exercise/sets Retrieves all sets for exercises in this workout.
+- GET /workoutexercise/:workout_exercise_id/sets
+- POST /workoutexercise/:workout_exercise_id/sets
+- PUT /workoutexercise/:workout_exercise_id/sets/:workout_exercise_set_id
+- DELETE /workoutexercisesets/:workout_exercise_set_id

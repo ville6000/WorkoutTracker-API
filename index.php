@@ -10,5 +10,6 @@ require 'routes/programs.php';
 require 'routes/programsexercises.php';
 require 'routes/workouts.php';
 require 'routes/workoutsexercises.php';
+require 'routes/workoutexercisesets.php';
 
 $app->run();
