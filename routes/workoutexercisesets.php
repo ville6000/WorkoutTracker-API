@@ -70,7 +70,7 @@ $app->put('/workoutexercise/:workout_exercise_id/sets/:workout_exercise_set_id',
 /**
  * DELETE request for workout exercise
  */
-$app->delete('/workoutexercisesets/:workout_exercise_set_id', function($workoutExerciseSetId) use ($app) {
+$app->delete('/workoutexercise/:workout_exercise_id/sets/:workout_exercise_set_id', function($workoutExerciseId , $workoutExerciseSetId) use ($app) {
     $workoutExercise = ORM::forTable('workout_exercise_sets')->findOne($workoutExerciseSetId);
 
     if (!$workoutExercise->delete()) {

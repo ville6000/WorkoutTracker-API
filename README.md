@@ -40,4 +40,4 @@ WorkoutTracker-API
 - GET /workoutexercise/:workout_exercise_id/sets
 - POST /workoutexercise/:workout_exercise_id/sets
 - PUT /workoutexercise/:workout_exercise_id/sets/:workout_exercise_set_id
-- DELETE /workoutexercisesets/:workout_exercise_set_id
+- DELETE /workoutexercise/:workout_exercise_id/sets/:workout_exercise_set_id
